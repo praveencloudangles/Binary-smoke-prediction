@@ -17,7 +17,7 @@ def data_cleaning():
     print(data['smoking'].value_counts())
     print(data.dtypes)
 
-    data = data.drop('id', axis=1)
+    #data = data.drop('id', axis=1)
 
     #removing columns 
 
