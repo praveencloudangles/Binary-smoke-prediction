@@ -93,6 +93,13 @@ def data_vis():
         # fig.show()
         fig.write_image(f"{i}_box.jpg")
 
+
+    data['age_group'] = pd.cut(data['age'], bins=[20, 30, 40, 50, 60, 70, 80], labels=['20-30', '30-40', '40-50', '50-60', '60-70', '70-80'])
+    mean_cholesterol = data.groupby('age_group')['Cholesterol'].mean().reset_index()
+    fig = px.bar(mean_cholesterol, x='age_group', y='Cholesterol', title='Mean Cholesterol Level by Age Group', template='plotly_dark')
+    fig.update_layout(xaxis_title='Age Group', yaxis_title='Mean Cholesterol Level')
+    fig.write_image('Mean cholesterol level by age group.jpg')
+
     #correlaton matrx
     columns_to_remove = ["smoking"]
     df=data.drop(columns=columns_to_remove,axis=1)
