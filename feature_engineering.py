@@ -1,6 +1,8 @@
 from datavisualization import data_vis
 from data_cleaning import data_cleaning
-
+from imblearn.over_sampling import SMOTE
+from imblearn.under_sampling import RandomUnderSampler
+import pandas as pd
 
 def feat_eng():
     data = data_vis()
